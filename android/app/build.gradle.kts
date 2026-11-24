@@ -1,9 +1,20 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
     // NOTE: `flutterfire configure` may add the Google Services plugin here
     // (id("com.google.gms.google-services")). That is fine — keep it if added.
+}
+
+// Release signing key: android/key.properties + android/app/upload-keystore.jks
+// (both git-ignored). Without them, release builds fall back to the debug key.
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 android {
@@ -20,8 +31,6 @@ android {
     }
 
     defaultConfig {
-        // TODO: change to your own unique application id before publishing,
-        // and use the same id when registering the Android app in Firebase.
         applicationId = "com.nour.mohammedsdua"
         // firebase_auth needs API 23+; Flutter's default (24) satisfies this.
         minSdk = flutter.minSdkVersion
@@ -31,10 +40,21 @@ android {
         multiDexEnabled = true
     }
 
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String?
+            keyPassword = keystoreProperties["keyPassword"] as String?
+            storeFile = keystoreProperties["storeFile"]?.let { file(it) }
+            storePassword = keystoreProperties["storePassword"] as String?
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = if (keystorePropertiesFile.exists())
+                signingConfigs.getByName("release")
+            else
+                signingConfigs.getByName("debug")
         }
     }
 }
