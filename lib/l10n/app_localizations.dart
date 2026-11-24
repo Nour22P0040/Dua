@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Dua Reminder'**
+  /// **'Mohammed\'s Dua'**
   String get appTitle;
 
   /// No description provided for @ok.
@@ -803,7 +803,7 @@ abstract class AppLocalizations {
   /// No description provided for @notificationsDisabledBody.
   ///
   /// In en, this message translates to:
-  /// **'Dua Reminder can\'t show reminders until you allow notifications. You can turn them on in the system settings.'**
+  /// **'Mohammed\'s Dua can\'t show reminders until you allow notifications. You can turn them on in the system settings.'**
   String get notificationsDisabledBody;
 
   /// No description provided for @enableNotifications.

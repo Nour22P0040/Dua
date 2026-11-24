@@ -62,7 +62,9 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.nights_stay_rounded, size: 72, color: theme.colorScheme.primary),
+            ClipOval(
+              child: Image.asset('assets/icon/app_icon.png', width: 96, height: 96),
+            ),
             const SizedBox(height: 16),
             Text(AppLocalizations.of(context).appTitle,
                 style: theme.textTheme.headlineSmall),

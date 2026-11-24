@@ -22,7 +22,7 @@ android {
     defaultConfig {
         // TODO: change to your own unique application id before publishing,
         // and use the same id when registering the Android app in Firebase.
-        applicationId = "com.example.dua"
+        applicationId = "com.nour.mohammedsdua"
         // firebase_auth needs API 23+; Flutter's default (24) satisfies this.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion

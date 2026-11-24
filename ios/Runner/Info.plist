@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Dua Reminder</string>
+	<string>Mohammed's Dua</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>

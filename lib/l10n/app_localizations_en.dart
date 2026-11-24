@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Dua Reminder';
+  String get appTitle => 'Mohammed\'s Dua';
 
   @override
   String get ok => 'OK';
@@ -396,7 +396,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notificationsDisabledBody =>
-      'Dua Reminder can\'t show reminders until you allow notifications. You can turn them on in the system settings.';
+      'Mohammed\'s Dua can\'t show reminders until you allow notifications. You can turn them on in the system settings.';
 
   @override
   String get enableNotifications => 'Allow notifications';

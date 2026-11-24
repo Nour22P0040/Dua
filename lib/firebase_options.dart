@@ -51,28 +51,26 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA3mjj8QHdw5GF4y16v6XjYDFYXjKCP2ko',
-    appId: '1:1068336315230:android:90d9642fb3b2f70c2cadcf',
+    appId: '1:1068336315230:android:7ec87e31ac75bad22cadcf',
     messagingSenderId: '1068336315230',
     projectId: 'duaa-c4363',
     storageBucket: 'duaa-c4363.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCL1U8NAt5rzukKEwYotr0g6xXnkIyaYoE',
-    appId: '1:1068336315230:ios:798cfbf00a64e1042cadcf',
+    appId: '1:1068336315230:ios:f296ccc92e42a29e2cadcf',
     messagingSenderId: '1068336315230',
     projectId: 'duaa-c4363',
     storageBucket: 'duaa-c4363.firebasestorage.app',
-    iosBundleId: 'com.example.dua',
+    iosBundleId: 'com.nour.mohammedsdua',
   );
-
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyCL1U8NAt5rzukKEwYotr0g6xXnkIyaYoE',
-    appId: '1:1068336315230:ios:798cfbf00a64e1042cadcf',
+    appId: '1:1068336315230:ios:f296ccc92e42a29e2cadcf',
     messagingSenderId: '1068336315230',
     projectId: 'duaa-c4363',
     storageBucket: 'duaa-c4363.firebasestorage.app',
-    iosBundleId: 'com.example.dua',
+    iosBundleId: 'com.nour.mohammedsdua',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(

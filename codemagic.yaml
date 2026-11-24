@@ -1,0 +1,65 @@
+# Builds the iOS app on Codemagic's cloud Macs (https://codemagic.io).
+#
+# ios-check     - unsigned build; proves the iOS app compiles. Needs no Apple account.
+# ios-testflight - signed build uploaded to TestFlight so you can install it on an iPhone.
+#                  Needs an Apple Developer account and an App Store Connect API key
+#                  added in Codemagic as an integration named "app_store_connect".
+
+workflows:
+  ios-check:
+    name: iOS build check (unsigned)
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Install pods
+        script: cd ios && pod install --repo-update
+      - name: Build iOS (no code signing)
+        script: flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/iphoneos/*.app
+
+  ios-testflight:
+    name: iOS release to TestFlight
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    integrations:
+      app_store_connect: app_store_connect
+    environment:
+      vars:
+        # The "Apple ID" number shown in App Store Connect > your app > App Information.
+        APP_STORE_APPLE_ID: "REPLACE_WITH_APP_ID_NUMBER"
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.nour.mohammedsdua
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Install pods
+        script: cd ios && pod install --repo-update
+      - name: Apply signing profiles
+        script: xcode-project use-profiles
+      - name: Build IPA
+        script: |
+          flutter build ipa --release \
+            --build-number=$(($(app-store-connect get-latest-testflight-build-number "$APP_STORE_APPLE_ID" 2>/dev/null || echo 0) + 1)) \
+            --export-options-plist=/Users/builder/export_options.plist
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true

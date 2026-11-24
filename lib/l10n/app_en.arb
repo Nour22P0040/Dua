@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitle": "Dua Reminder",
+  "appTitle": "Mohammed's Dua",
   "ok": "OK",
   "cancel": "Cancel",
   "retry": "Retry",
@@ -133,7 +133,7 @@
   "allowed": "Allowed",
 
   "notificationsDisabledTitle": "Notifications are off",
-  "notificationsDisabledBody": "Dua Reminder can't show reminders until you allow notifications. You can turn them on in the system settings.",
+  "notificationsDisabledBody": "Mohammed's Dua can't show reminders until you allow notifications. You can turn them on in the system settings.",
   "enableNotifications": "Allow notifications",
   "notificationTitle": "Dua reminder",
   "testNotificationTitle": "Dua reminder (test)",
