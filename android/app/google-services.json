@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1068336315230",
+    "project_id": "duaa-c4363",
+    "storage_bucket": "duaa-c4363.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068336315230:android:90d9642fb3b2f70c2cadcf",
+        "android_client_info": {
+          "package_name": "com.example.dua"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3mjj8QHdw5GF4y16v6XjYDFYXjKCP2ko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
